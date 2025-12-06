@@ -1,0 +1,5 @@
+ru\yandex\practicum\tests\GetOrderListTests.class
+ru\yandex\practicum\tests\CreateOrderTests.class
+ru\yandex\practicum\tests\BaseTest.class
+ru\yandex\practicum\tests\CreateCourierTests.class
+ru\yandex\practicum\tests\LoginCourierTests.class
