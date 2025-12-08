@@ -8,7 +8,7 @@ import ru.practicum.practicum.steps.OrdersSteps;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
 
-public class GetOrderListTests extends BaseTest{
+public class GetOrderListTests extends BaseTest {
     private OrdersSteps ordersSteps = new OrdersSteps();
     private Order order;
 
@@ -19,7 +19,7 @@ public class GetOrderListTests extends BaseTest{
 
     @Test
     @DisplayName("Список всех заказов.")
-    public void getListOrdersTest(){
+    public void getListOrdersTest() {
 
         ordersSteps
                 .orderList()
@@ -27,7 +27,6 @@ public class GetOrderListTests extends BaseTest{
                 .body("orders", notNullValue());
 
 
-
     }
-    }
+}
 

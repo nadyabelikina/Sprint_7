@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ru.yandex.practicum.tests.CreateCourierTests
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.283 s - in ru.yandex.practicum.tests.CreateCourierTests
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.132 s - in ru.yandex.practicum.tests.CreateCourierTests

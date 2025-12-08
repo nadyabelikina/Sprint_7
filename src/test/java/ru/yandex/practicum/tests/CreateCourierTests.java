@@ -11,27 +11,24 @@ import ru.practicum.practicum.steps.CouriersSteps;
 import static org.hamcrest.CoreMatchers.*;
 
 
-public class CreateCourierTests extends BaseTest{
+public class CreateCourierTests extends BaseTest {
     private CouriersSteps couriersSteps = new CouriersSteps();
     private Courier courier;
 
     @Before
-    public void setUp(){
+    public void setUp() {
 
         courier = new Courier();
         courier
                 .setLogin(RandomStringUtils.randomAlphabetic(12))
                 .setPassword(RandomStringUtils.randomAlphabetic(12))
                 .setFirstName(RandomStringUtils.randomAlphabetic(12));
-
     }
 
 
     @Test
     @DisplayName("Создание нового курьера.")
-    public void createNewCourier(){
-
-
+    public void createNewCourier() {
         couriersSteps
                 .createCourier(courier)
                 .statusCode(201)
@@ -40,7 +37,7 @@ public class CreateCourierTests extends BaseTest{
 
     @Test
     @DisplayName("Создание нового курьера. Курьер без имени курьера.")
-    public void createNewCourierWithoutFirstName(){
+    public void createNewCourierWithoutFirstName() {
 
 
         courier.setFirstName("");
@@ -53,7 +50,7 @@ public class CreateCourierTests extends BaseTest{
     //Создание курьеров с одинаковыми логинами
     @Test
     @DisplayName("Создание нового курьера. Логин уже есть в базе.")
-    public void shouldCreateCourierSameLoginTest(){
+    public void shouldCreateCourierSameLoginTest() {
 
 
         couriersSteps
@@ -73,7 +70,7 @@ public class CreateCourierTests extends BaseTest{
 
     @Test
     @DisplayName("Создание нового курьера. Курьер без логина")
-    public void shouldCreateCourierWithoutLoginTest(){
+    public void shouldCreateCourierWithoutLoginTest() {
 
 
         courier.setLogin("");
@@ -81,13 +78,12 @@ public class CreateCourierTests extends BaseTest{
                 .createCourier(courier)
                 .statusCode(400)
                 .body("message", equalTo("Недостаточно данных для создания учетной записи"));
-
     }
 
 
     @Test
     @DisplayName("Создание нового курьера. Курьер без пароля.")
-    public void shouldCreateCourierWithoutPasswordTest(){
+    public void shouldCreateCourierWithoutPasswordTest() {
 
 
         courier.setPassword("");
@@ -95,27 +91,23 @@ public class CreateCourierTests extends BaseTest{
                 .createCourier(courier)
                 .statusCode(400)
                 .body("message", equalTo("Недостаточно данных для создания учетной записи"));
-
     }
 
 
     @Test
     @DisplayName("Создание нового курьера. Курьер без пароля и логина.")
-    public void shouldCreateCourierWithoutLoginAndPasswordTest(){
-
-
+    public void shouldCreateCourierWithoutLoginAndPasswordTest() {
         courier.setLogin("");
         courier.setPassword("");
         couriersSteps
                 .createCourier(courier)
                 .statusCode(400)
                 .body("message", equalTo("Недостаточно данных для создания учетной записи"));
-
     }
 
     @After
-    public void tearDown(){
-        if(!courier.getLogin().isEmpty() && !courier.getPassword().isEmpty()) {
+    public void tearDown() {
+        if (!courier.getLogin().isEmpty() && !courier.getPassword().isEmpty()) {
             Integer id = couriersSteps
                     .login(courier)
                     .extract().body().path("id");
@@ -123,8 +115,5 @@ public class CreateCourierTests extends BaseTest{
             courier.setId(id);
             couriersSteps.deleteCourier(courier);
         }
-
-
     }
-
 }
